@@ -1,0 +1,16 @@
+digraph Component {
+  graph [label="SMART CITY SERVICES PLATFORM - COMPONENT DIAGRAM", labelloc=t, fontsize=22, fontname="Arial", rankdir=TB, splines=ortho, nodesep=0.55, ranksep=0.65, pad=0.3];
+  node [shape=component, style="filled", fillcolor="#eff6ff", color="#2563eb", fontname="Arial", fontsize=10, margin="0.18,0.12"];
+  edge [fontname="Arial", fontsize=9, color="#374151", arrowsize=0.7];
+  UI [label="Frontend Components\n(index.jsp, login.jsp,\nregister.jsp, dashboards)"];
+  Controller [label="Controller Layer\n(Servlets)"];
+  Business [label="Business Logic\n(Authentication, Listings,\nReviews, Admin Moderation)"];
+  DAO [label="Data Access Layer\n(JDBC / DAO)"];
+  DB [shape=cylinder, label="MySQL Database\n(Users, Businesses,\nServices, Reviews)"];
+  UI -> Controller [label="HTTP Request / Response"];
+  Controller -> Business [label="Invoke operations"];
+  Business -> DAO [label="Read / Write data"];
+  DAO -> DB [label="SQL queries"];
+  DB -> DAO [label="ResultSet", style=dashed];
+  DAO -> Business [label="Data", style=dashed];
+}

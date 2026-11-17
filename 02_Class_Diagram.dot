@@ -1,0 +1,35 @@
+digraph ClassDiagram {
+  graph [label="SMART CITY SERVICES PLATFORM - CLASS DIAGRAM", labelloc=t, fontsize=22, fontname="Arial", rankdir=TB, splines=ortho, nodesep=0.45, ranksep=0.65, pad=0.3];
+  node [shape=plain, fontname="Arial", fontsize=10];
+  edge [fontname="Arial", fontsize=9, color="#374151", dir=none];
+  User [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#2563eb">
+    <TR><TD BGCOLOR="#dbeafe"><B>User</B></TD></TR><TR><TD ALIGN="LEFT">- userId: int<BR ALIGN="LEFT"/>- name: String<BR ALIGN="LEFT"/>- email: String<BR ALIGN="LEFT"/>- password: String</TD></TR>
+    <TR><TD ALIGN="LEFT" BGCOLOR="#f8fafc">+ register()<BR ALIGN="LEFT"/>+ login()<BR ALIGN="LEFT"/>+ updateProfile()</TD></TR></TABLE>>];
+  Admin [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#7c3aed">
+    <TR><TD BGCOLOR="#ede9fe"><B>Admin</B></TD></TR><TR><TD ALIGN="LEFT">- adminId: int</TD></TR>
+    <TR><TD ALIGN="LEFT" BGCOLOR="#f8fafc">+ approveListing()<BR ALIGN="LEFT"/>+ manageUsers()</TD></TR></TABLE>>];
+  Owner [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#7c3aed">
+    <TR><TD BGCOLOR="#ede9fe"><B>BusinessOwner</B></TD></TR><TR><TD ALIGN="LEFT">- ownerId: int<BR ALIGN="LEFT"/>- contact: String</TD></TR>
+    <TR><TD ALIGN="LEFT" BGCOLOR="#f8fafc">+ registerBusiness()<BR ALIGN="LEFT"/>+ updateBusiness()</TD></TR></TABLE>>];
+  Business [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#059669">
+    <TR><TD BGCOLOR="#d1fae5"><B>Business</B></TD></TR><TR><TD ALIGN="LEFT">- businessId: int<BR ALIGN="LEFT"/>- businessName: String<BR ALIGN="LEFT"/>- address: String<BR ALIGN="LEFT"/>- category: String<BR ALIGN="LEFT"/>- status: String</TD></TR>
+    <TR><TD ALIGN="LEFT" BGCOLOR="#f8fafc">+ addBusiness()<BR ALIGN="LEFT"/>+ updateDetails()</TD></TR></TABLE>>];
+  Service [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#059669">
+    <TR><TD BGCOLOR="#d1fae5"><B>Service</B></TD></TR><TR><TD ALIGN="LEFT">- serviceId: int<BR ALIGN="LEFT"/>- serviceName: String<BR ALIGN="LEFT"/>- description: String</TD></TR>
+    <TR><TD ALIGN="LEFT" BGCOLOR="#f8fafc">+ searchService()<BR ALIGN="LEFT"/>+ viewDetails()</TD></TR></TABLE>>];
+  Review [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#d97706">
+    <TR><TD BGCOLOR="#fef3c7"><B>Review</B></TD></TR><TR><TD ALIGN="LEFT">- reviewId: int<BR ALIGN="LEFT"/>- rating: int<BR ALIGN="LEFT"/>- comment: String</TD></TR>
+    <TR><TD ALIGN="LEFT" BGCOLOR="#f8fafc">+ addReview()</TD></TR></TABLE>>];
+  User -> Review [label="writes 0..*"];
+  Business -> Review [label="receives 0..*"];
+  Owner -> Business [label="manages 1..*"];
+  Business -> Service [label="offers 1..*"];
+  Admin -> Business [label="moderates"];
+  User -> Business [label="browses"];
+}

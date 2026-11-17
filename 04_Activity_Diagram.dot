@@ -1,0 +1,19 @@
+digraph Activity {
+  graph [label="SMART CITY SERVICES PLATFORM - USER LOGIN ACTIVITY", labelloc=t, fontsize=22, fontname="Arial", rankdir=TB, splines=ortho, nodesep=0.45, ranksep=0.5, pad=0.3];
+  node [fontname="Arial", fontsize=10, style="filled", color="#2563eb", fillcolor="#eff6ff", margin="0.18,0.10"];
+  edge [fontname="Arial", fontsize=9, color="#374151", arrowsize=0.7];
+  Start [shape=circle, label="", width=0.22, height=0.22, fillcolor="#111827", color="#111827"];
+  Open [shape=box, style="rounded,filled", label="Open Login Page"];
+  Input [shape=box, style="rounded,filled", label="Enter Email and Password"];
+  Submit [shape=box, style="rounded,filled", label="Click Login"];
+  Check [shape=diamond, label="Credentials\nValid?", fillcolor="#fef3c7", color="#d97706", width=1.25, height=0.8];
+  Error [shape=box, style="rounded,filled", label="Show Error Message"];
+  Session [shape=box, style="rounded,filled", label="Create User Session"];
+  Home [shape=box, style="rounded,filled", label="Open User Dashboard"];
+  End [shape=doublecircle, label="", width=0.25, height=0.25, fillcolor="#111827", color="#111827"];
+  Start -> Open -> Input -> Submit -> Check;
+  Check -> Session [label="Yes"];
+  Session -> Home -> End;
+  Check -> Error [label="No"];
+  Error -> Input;
+}

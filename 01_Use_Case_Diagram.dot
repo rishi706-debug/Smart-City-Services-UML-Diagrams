@@ -1,0 +1,26 @@
+digraph UseCase {
+  graph [label="SMART CITY SERVICES PLATFORM - USE CASE DIAGRAM", labelloc=t, fontsize=22, fontname="Arial", rankdir=LR, splines=ortho, nodesep=0.55, ranksep=0.9, pad=0.3];
+  node [fontname="Arial", fontsize=11];
+  edge [fontname="Arial", fontsize=9, color="#374151"];
+  User [shape=plaintext, label="USER\n(Visitor / Customer)"];
+  Owner [shape=plaintext, label="BUSINESS OWNER"];
+  Admin [shape=plaintext, label="ADMIN"];
+  subgraph cluster_system {
+    label="Smart City Services Platform"; fontsize=15; color="#2563eb"; style="rounded";
+    node [shape=ellipse, style="filled", fillcolor="#eff6ff", color="#2563eb", margin="0.18,0.10"];
+    Register [label="Register"];
+    Login [label="Login"];
+    Browse [label="Browse Services"];
+    Details [label="View Business Details"];
+    Review [label="Submit Review"];
+    Profile [label="Manage Profile"];
+    AddBusiness [label="Register Business"];
+    ManageListing [label="Manage Business Listing"];
+    Moderate [label="Approve / Reject Listings"];
+    ManageUsers [label="Manage Users"];
+  }
+  User -> Register; User -> Login; User -> Browse; User -> Details; User -> Review; User -> Profile;
+  Owner -> Register; Owner -> Login; Owner -> AddBusiness; Owner -> ManageListing;
+  Admin -> Login; Admin -> Moderate; Admin -> ManageUsers;
+  {rank=same; User; Owner; Admin}
+}

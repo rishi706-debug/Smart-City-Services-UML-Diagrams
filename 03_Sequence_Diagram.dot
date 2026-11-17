@@ -1,0 +1,17 @@
+digraph Sequence {
+  graph [label="SMART CITY SERVICES PLATFORM - LOGIN SEQUENCE DIAGRAM", labelloc=t, fontsize=22, fontname="Arial", rankdir=TB, splines=ortho, nodesep=0.45, ranksep=0.55, pad=0.3];
+  node [shape=box, style="rounded,filled", fillcolor="#eff6ff", color="#2563eb", fontname="Arial", fontsize=10, margin="0.16,0.10"];
+  edge [fontname="Arial", fontsize=9, color="#374151", arrowsize=0.7];
+  User [label="User"];
+  Page [label="Login JSP Page"];
+  Servlet [label="Login Servlet"];
+  DB [label="MySQL Database"];
+  Dashboard [label="User Dashboard"];
+  User -> Page [label="1. Enter email & password"];
+  Page -> Servlet [label="2. Submit login form"];
+  Servlet -> DB [label="3. Validate credentials"];
+  DB -> Servlet [label="4. Return user record / result"];
+  Servlet -> Dashboard [label="5. Create session & redirect\n(if valid)"];
+  Dashboard -> User [label="6. Display dashboard"];
+  Servlet -> Page [label="If invalid: show error message", style=dashed, constraint=false];
+}
