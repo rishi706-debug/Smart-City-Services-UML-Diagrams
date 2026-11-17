@@ -12,5 +12,3 @@ This folder contains five UML-style diagrams prepared for the OOAD Lab viva.
 ## Project technology assumptions
 The diagrams are based on the Smart City Services Platform structure discussed for the project: JSP, Servlets, JDBC, and MySQL. Names can be adjusted if the actual implementation uses different class, table, or page names.
 
-## GitHub upload
-Upload the complete `UML-Diagrams` folder into the root of your existing project repository. Keep both `.png` (for viewing) and `.dot` (editable source) files.
